@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.template.dao.SampleMapper">
+    <select id="getMemberList" resultType="SampleVO">
+        select * from sample_member
+    </select>
+
+    <select id="getMember" resultType="SampleVO">
+        select * from sample_member where member_id = #{memberId}
+    </select>
+
+    <insert id="createMember">
+        insert into sample_member(username, member_id) values(#{userName}, #{memberId})
+    </insert>
+
+    <delete id="deleteMember">
+        delete from sample_member where member_id = #{memberId}
+    </delete>
+
+    <update id="updateMember">
+        update sample_member set username = #{userName} where member_id = #{memberId}
+    </update>
+</mapper>
